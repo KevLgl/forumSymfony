@@ -1,0 +1,12 @@
+{% extends 'template.html.twig' %}
+
+{% block title %} {{ subject.title }} {% endblock %}
+
+{% block main %}
+    <h2>{{ subject.title }}</h2>
+    <div class="alert alert-secondary"> 
+        <p> {{ subject.content }}</p>
+    </div>
+
+
+{% endblock %}

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SubjectRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=SubjectRepository::class)
@@ -18,11 +19,20 @@ class Subject
     private $id;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 30,
+     *      minMessage = "Votre question doit comporter au moins {{ limit }} caracteres",
+     * )
      */
     private $title;
 
     /**
+     * @Assert\Length(
+     *      min = 50,
+     *      minMessage = "Votre question doit comporter au moins {{ limit }} caracteres",
+     * )
      * @ORM\Column(type="text")
      */
     private $content;
